@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do Tempo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Previsão do Tempo</h1>
+        <div class="cidade-input">
+            <input type="text" id="cidade" placeholder="Digite a cidade">
+            <button id="verificar-btn">Verificar</button>
+        </div>
+        <div id="previsao-tempo1">
+            {% if previsao_tempo %}
+                <h2>Previsão do Tempo em {{ previsao_tempo.cidade }}</h2>
+                <p>Temperatura: {{ previsao_tempo.temperatura }}°C</p>
+                <p>Condição: {{ previsao_tempo.condicao }}</p>
+            {% else %}
+                <p>A previsão do tempo não está disponível.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
